@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f9dbe4" />
+  <title>宝宝和小宝宝的七夕回忆之旅</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+  <main class="phone-shell">
+    <header class="topbar">
+      <div class="mini-brand"><span class="mini-heart">♥</span><span>宝宝 × 小宝宝</span></div>
+      <div class="mini-dot">七夕快乐</div>
+    </header>
+
+    <section class="screen active home-screen" id="screen-home">
+      <div class="home-backdrop"></div>
+      <div class="home-overlay"></div>
+      <div class="home-copy">
+        <div class="home-bottom-panel">
+          <div class="days-card home-days-card">
+            <span class="days-label">我们已经相爱</span>
+            <strong id="loveDays">--</strong>
+            <span class="days-unit">天</span>
+            <p id="startDateText">从 2025.03.12 开始，故事一直写到今天。</p>
+          </div>
+          <div class="qixi-copy home-qixi-copy">
+            <p>七夕快乐呀 ♡</p>
+            <small>有一份礼物藏在我们的回忆里。</small>
+          </div>
+          <button class="primary-btn pulse" data-go="story">开启我们的七夕之旅 <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-story">
+      <div class="section-pad story-wrap">
+        <p class="eyebrow">MEMORY MISSION</p>
+        <h2>先一起翻翻<br>我们的回忆小册子吧</h2>
+
+        <div class="story-centerpiece">
+          <div class="story-heart">♡</div>
+          <div class="story-book"><span>📖</span><small>回忆小册子</small></div>
+        </div>
+
+        <div class="dialog-list">
+          <div class="dialog little-side">
+            <span class="avatar real"><img src="./assets/chars/little-baby.png" alt="小宝宝" /></span>
+            <div>
+              <b>小宝宝</b>
+              <p>宝宝，七夕快乐！你还记得我们美好的回忆嘛？</p>
+            </div>
+          </div>
+
+          <div class="dialog baby-side">
+            <span class="avatar real"><img src="./assets/chars/baby.png" alt="宝宝" /></span>
+            <div>
+              <b>宝宝</b>
+              <p>好呀，那我们来看看我到底记得多少！</p>
+            </div>
+          </div>
+
+          <div class="dialog little-side">
+            <span class="avatar real"><img src="./assets/chars/little-baby.png" alt="小宝宝" /></span>
+            <div>
+              <b>小宝宝</b>
+              <p>我准备了 10 个回忆小问题，不是选择题，要你自己想起来回答哦 ♡</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <div><span>随机抽取</span><strong>10</strong><small>个回忆问题</small></div>
+          <i></i>
+          <div><span>至少答对</span><strong>9</strong><small>个就能继续</small></div>
+        </div>
+
+        <div class="soft-note">和你重新把我们的故事过一遍 ♡</div>
+        <button class="primary-btn" id="startQuizBtn">开始回忆之旅 <span>♡</span></button>
+        <button class="text-btn" data-go="home">回到首页</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-quiz">
+      <div class="section-pad quiz-wrap">
+        <div class="quiz-head">
+          <div>
+            <p class="eyebrow">OUR MEMORIES</p>
+            <h2>回忆挑战</h2>
+          </div>
+          <div class="score-chip"><span id="currentNo">1</span>/10</div>
+        </div>
+
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="heart-progress" id="heartProgress" aria-label="答题进度"></div>
+
+        <article class="question-card">
+          <div class="question-kicker" id="questionCategory">回忆篇</div>
+          <div class="media-box hidden" id="imageBox"><img id="questionImage" alt="回忆图片" /></div>
+          <h3 id="questionText">题目加载中...</h3>
+          <div class="answer-panel">
+            <textarea id="answerInput" class="answer-input" placeholder="把你想到的答案写在这里……"></textarea>
+            <p class="input-tip">可以写简短一点，比如地点、日期、称呼、事件名。</p>
+            <button class="submit-answer-btn" id="submitAnswerBtn">提交这个答案</button>
+          </div>
+        </article>
+
+        <div class="feedback hidden" id="feedback"></div>
+        <button class="primary-btn hidden" id="nextQuestionBtn">下一段回忆 →</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-result">
+      <div class="section-pad centered">
+        <div class="result-icon" id="resultIcon">💗</div>
+        <p class="eyebrow">MEMORY CHECK</p>
+        <h2 id="resultTitle">回忆验证成功</h2>
+        <div class="big-score"><strong id="finalScore">9</strong><span>/ 10</span></div>
+        <p class="result-copy" id="resultCopy">你把我们的回忆都好好地放在心里啦。接下来继续看看我准备的惊喜吧。</p>
+        <div class="poster-figure">
+          <img src="./assets/bg/result-poster.png" alt="我俩天下第一好" />
+        </div>
+        <button class="primary-btn" id="resultActionBtn">继续看惊喜 💌</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-lottery">
+      <div class="section-pad centered lottery-section">
+        <p class="eyebrow">QIXI LUCKY DRAW</p>
+        <h2>翻开今天的小惊喜</h2>
+        <p class="subcopy">回忆结束啦，接下来把今天的小礼物拆开吧。</p>
+
+        <div class="lottery-stage">
+          <div class="lottery-glow"></div>
+          <button class="lottery-gift" id="drawBtn" aria-label="点击打开惊喜">
+            <span class="gift-lid">🎀</span>
+            <span class="gift-body">🎁</span>
+            <small>点一下打开</small>
+          </button>
+        </div>
+
+        <div class="prize-card hidden" id="prizeCard">
+          <span>今日礼物</span>
+          <strong id="prizeText">七夕礼物领取券</strong>
+          <p id="prizeNote">（请凭截图领取）</p>
+        </div>
+
+        <button class="primary-btn hidden" id="toLetterBtn">收下最后一封信 💌</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-letter">
+      <div class="section-pad centered letter-screen">
+        <p class="eyebrow">ONE LAST SURPRISE</p>
+        <h2>最后，还有一封信</h2>
+        <p class="subcopy">这是这趟回忆之旅最后、也是最想送给宝宝的一份心意。</p>
+
+        <button class="envelope" id="envelopeBtn" aria-label="打开信封">
+          <div class="envelope-back"></div>
+          <div class="letter-paper"><span>TO 宝宝 ♡</span></div>
+          <div class="envelope-front"></div>
+          <div class="envelope-flap"></div>
+          <div class="wax">♡</div>
+        </button>
+
+        <p class="tap-tip" id="tapTip">轻轻点一下信封</p>
+
+        <article class="love-letter hidden" id="loveLetter">
+          <p class="letter-date" id="letterDate">七夕</p>
+          <h3>亲爱的宝宝：</h3>
+          <div id="letterBody"></div>
+          <p class="signature">爱你的小宝宝 ♡</p>
+        </article>
+
+        <div class="ending hidden" id="ending">
+          <div class="poster-figure ending-poster">
+            <img src="./assets/bg/letter-collage.jpg" alt="我们的回忆拼图" />
+          </div>
+          <h3>七夕快乐，宝宝。</h3>
+          <p>以后也要一起收集很多很多回忆。</p>
+          <button class="text-btn" id="replayBtn">再看一次我们的故事 ♡</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <div class="image-modal hidden" id="imageModal">
+    <div class="image-modal-backdrop" id="imageModalBackdrop"></div>
+    <div class="image-modal-content">
+      <img id="modalImage" alt="放大的回忆图片" />
+      <button class="image-modal-close" id="closeImageModal">关闭</button>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
